@@ -75,7 +75,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             return;
         }
 
-
+        // Préflight CORS : pas de jeton, ne pas renvoyer 401
+        if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+            filterChain.doFilter(request, response);
+            return;
+        }
 
         String authHeader = request.getHeader( "Authorization");
 

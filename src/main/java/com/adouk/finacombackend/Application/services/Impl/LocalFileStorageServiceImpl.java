@@ -29,7 +29,7 @@ public class LocalFileStorageServiceImpl implements FileStorageService {
     @Value("${app.storage.local.directory:${user.home}/.finacom/uploads}")
     private String baseDirectory;
 
-    @Value("${app.public.api-base-url:http://localhost:8080}")
+    @Value("${app.public.api-base-url:https://cmfback.onrender.com}")
     private String publicApiBaseUrl;
 
     private Path basePath() {
